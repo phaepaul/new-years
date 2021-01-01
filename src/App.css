@@ -2,37 +2,69 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+.red { color: #e6261f; }
+.blue { color: #34bbe6; }
+.yellow { color: #f7d038; }
+.orange { color: #eb7532; }
+.purple { color: #4355db; }
+.lime { color: #a3e048; }
+.green { color: #49da9a; }
+.indigo { color: #d23be7}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.mrq-container {
+  overflow: hidden;
+  position: relative;
+  background-color: rgb(29, 29, 29);
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.mrq-container::before {
+  content: '\00a0';
 }
 
-@keyframes App-logo-spin {
+.mrq {
+  animation: marquee 2s linear infinite;
+  display: inline-block;
+  text-transform: uppercase;
+}
+
+/* Make it move */
+@keyframes marquee {
   from {
-    transform: rotate(0deg);
+    transform: translateX(100%);
+  }
+  to { 
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes spinner {
+  from { transform: rotate(0deg) }
+  to { transform: rotate(360deg) }
+}
+.spin {
+  animation-name: spinner;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.scrolling {
+  animation: scroll 3s linear infinite;
+  left: 0;
+  position: absolute;
+  top: 0;
+}
+
+@keyframes scroll {
+  from {
+    transform: translateY(100%);
   }
   to {
-    transform: rotate(360deg);
+    transform: translateY(-100%);
   }
+}
+
+#rainbow {
+  height: 100%;
+  background: linear-gradient(to right, orange , yellow, green, cyan, blue, violet);
 }
